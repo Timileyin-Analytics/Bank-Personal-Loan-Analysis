@@ -4,6 +4,7 @@ select count(id) as No_customers
 from bank_personal_loan_modelling_12;
 
 Question 2
+What percentage accepted a personal loan?
 select round(count(case when Personal_Loan = 1 then 1 end) *100.0)/ count(*) as accepted_loan
 from bank_personal_loan_modelling_12; 
 
@@ -11,7 +12,7 @@ from bank_personal_loan_modelling_12;
 Question 3
 What is the average income of customers?
 
-SELECT ROUND(AVG(Income),2) AS Average_Income
+SELECT ROUND(AVG(Income)) AS Average_Income
 FROM bank_personal_loan_modelling_12;
 
 
@@ -19,7 +20,7 @@ Question 4
 Which education level has the highest loan acceptance?
 
 SELECT Education,
-       SUM(Personal_Loan) AS Accepted_Loans
+       sum(Personal_Loan) AS Accepted_Loans
 FROM bank_personal_loan_modelling_12
 GROUP BY Education
 ORDER BY Accepted_Loans DESC;
